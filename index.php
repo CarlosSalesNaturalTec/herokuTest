@@ -23,3 +23,6 @@ if(!is_array($decoded)){
 }
 
 //Process the JSON.
+echo $decoded
+
+?>
