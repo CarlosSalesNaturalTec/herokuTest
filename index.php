@@ -9,7 +9,17 @@ if ($method == "POST"){
 	
     $text = $json->queryResult->parameters->Param;
 
-    $Speech = $text;
+    switch($text){
+        case "001":
+            $Speech = "Teste 01 - OK.";
+            break;
+        case "002":
+            $Speech = "Teste 02 - OK.";
+            break;
+        default: 
+            $Speech = "Teste não Especificado";
+            break;
+    }
 
     $response = new \stdClass();
     $response->speech = $Speech;
