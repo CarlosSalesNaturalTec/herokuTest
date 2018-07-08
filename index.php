@@ -4,10 +4,20 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 if ($method == "POST"){
 
- 	$json_str = file_get_contents("php://input");
-	$json_obj = json_decode($json_str);
+ 	$requestBody = file_get_contents('php://input');
+    $json = json_decode($requestBody);
 	
-	echo "POST recebido";
+	$text = $json->responseId;
+
+    $Speech = $text;
+
+    $response = new \stdClass();
+    $response->speech = $Speech;
+    $response->displayText = "";
+    $response->source = "webhook";
+	
+    echo json_encode($response);
+	
 	
 }
 else {
